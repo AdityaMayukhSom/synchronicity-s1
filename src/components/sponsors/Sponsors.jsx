@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import SectionTitle from "../lib/SectionTitle";
 
 //import titleSponsors from "../../data/sponsorsData/titleSponsors";
@@ -7,28 +9,12 @@ import SectionTitle from "../lib/SectionTitle";
 import genericSponsors from "../../data/sponsorsData/genericSponsors";
 import APIToolingPartner from "../../data/sponsorsData/APIToolingPartner";
 
-/*const sponsorLists = [
-  {
-    name: "Title Sponsors",
-    list: titleSponsors,
-  },
-  {
-    name: "Gold Sponsors",
-    list: goldSponsors,
-  },
-  {
-    name: "Silver Sponsors",
-    list: silverSponsors,
-  },
-  {
-    name: "Bronze Sponsors",
-    list: bronzeSponsors,
-  },
-  {
-    name: "Other Sponsors",
-    list: genericSponsors,
-  },
-];*/
+/**
+ * @typedef {object} Sponsor
+ * @property {string} name
+ * @property {string} sponsorWebsiteURL
+ * @property {string} sponsorLogoURL
+ */
 
 const sponsorLists = [
   {
@@ -41,24 +27,34 @@ const sponsorLists = [
   },
 ];
 
+/**
+ * @param {Sponsor} props
+ */
 function Sponsor(props) {
   return (
-    <div className="flex items-center justify-center" key={props}>
+    <div
+      className="flex items-center justify-center bg-white rounded-md p-8"
+      key={props.name}
+    >
       <a href={props.sponsorWebsiteURL} rel="noreferrer" target="_blank">
         <img
           src={props.sponsorLogoURL}
           alt={props.name}
-          className="w-60 sm:w-96"
+          className=" max-h-48 max-w-72 sm:w-96"
         />
       </a>
     </div>
   );
 }
 
+/**
+ * @param {object} props
+ * @param {string} props.name
+ * @param {Sponsor[]} props.list
+ */
 function SponsorList({ name, list }) {
   return (
     <>
-      {/* <SectionTitle title={name} fontSize={"28"} /> */}
       <SectionTitle title={name} />
       <section className="flex flex-col items-center justify-center">
         <section className="flex flex-wrap items-center justify-center gap-16 p-8">
@@ -69,9 +65,19 @@ function SponsorList({ name, list }) {
   );
 }
 
+SponsorList.propType = {
+  name: PropTypes.string.isRequired,
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      color: PropTypes.string.isRequired,
+      fontSize: PropTypes.number.isRequired,
+    })
+  ),
+};
+
 export default function Sponsors() {
   return (
-    <section id="sponsors" className="pt-16">
+    <section id="sponsors" className="py-16 bg-gray-950 text-white">
       {sponsorLists.map(SponsorList)}
     </section>
   );
