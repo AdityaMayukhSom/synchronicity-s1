@@ -1,11 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function SectionTitle({
-  preTitle,
-  title,
-  titleDescription,
-  fontSize,
-}) {
+/**
+ * @param {object} props
+ *
+ * @param {string} [props.preTitle]
+ * Text to be shown before the main title appears.
+ *
+ * @param {string} props.title
+ * Main title for the section.
+ *
+ * @param {string} [props.titleDescription]
+ * A small description of the section or a tagline.
+ */
+const SectionTitle = ({ preTitle, title, titleDescription }) => {
   return (
     <div className="w-full px-4 mt-12">
       <div className="mx-auto max-w-[640px] text-center">
@@ -14,16 +22,9 @@ export default function SectionTitle({
             {preTitle}
           </span>
         )}
-        {title && (
-          <h2
-            className={
-              "mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]"
-            }
-            style={{ fontSize: `${fontSize}px` }}
-          >
-            {title}
-          </h2>
-        )}
+        <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-4.5xl">
+          {title}
+        </h2>
         {titleDescription && (
           <p className="text-base font-medium text-body-color">
             {titleDescription}
@@ -32,4 +33,12 @@ export default function SectionTitle({
       </div>
     </div>
   );
-}
+};
+
+SectionTitle.propTypes = {
+  preTitle: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  titleDescription: PropTypes.string,
+};
+
+export default SectionTitle;
