@@ -20,8 +20,8 @@ export default function About() {
           />
         </div>
 
-        <div className="flex flex-col justify-start p-10">
-          <p className="pb-4 text-lg font-medium leading-relaxed text-justify">
+        <div className="flex flex-col justify-start p-10 pt-5">
+          <p className="pb-4 text-lg lg:pr-12 font-medium leading-relaxed text-justify">
             <strong>synchronicity</strong> is an offline hackathon in which
             participants can sharpen their skills and connect with people to
             grow together. It is designed to spark innovation, attract and
@@ -33,7 +33,7 @@ export default function About() {
           </p>
           <PrimaryButton
             iconFilePath={"/icons/discord.svg"}
-            buttonText={"Discord Channel coming soon!"}
+            buttonText={"Discord Coming Soon!"}
             buttonURL={"/"}
             iconAlternativeText={"discord logo"}
           />
