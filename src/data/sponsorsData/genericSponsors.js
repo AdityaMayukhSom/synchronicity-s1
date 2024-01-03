@@ -32,7 +32,7 @@ const genericSponsors = [
   {
     name: "ACM India",
     sponsorWebsiteURL: "https://india.acm.org/",
-    sponsorLogoURL: "/sponsorLogos/acm-india.jpeg",
+    sponsorLogoURL: "/sponsorLogos/acm-india.png",
   },
 ];
 
