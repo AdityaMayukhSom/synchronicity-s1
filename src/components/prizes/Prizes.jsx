@@ -6,7 +6,7 @@ export default function Prize() {
   return (
     <section id="prizes" className="pt-16 pb-8 bg-white">
       <SectionTitle
-        title={"Exciting Prizes"}
+        title={"Exciting Prizes!"}
         titleDescription={
           "Checkout what different prizes synchronicity has to offer to you."
         }
